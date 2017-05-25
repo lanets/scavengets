@@ -3,20 +3,20 @@
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-.
 
 ## Build Dockerfile
-FOR ANGULAR-CLIENT <br /n>
-docker build -t angular-client:dev . <br /n>
-FOR EXPRESS-SERVER <br /n>
-docker build -t express-server:dev . <br /n>
+FOR ANGULAR-CLIENT <br>
+docker build -t angular-client:dev . <br>
+FOR EXPRESS-SERVER <br>
+docker build -t express-server:dev . <br>
 
 
 ## Development server
-docker-compose up
-AFTER CHANGES
-docker-compose up --build
+docker-compose up <br>
+AFTER CHANGES <br>
+docker-compose up --build<br>
 
 ## localhost
-angular-client: http://localhost:4200
-express-server: http://localhost:3000
+angular-client: http://localhost:4200 <br>
+express-server: http://localhost:3000<br>
 mongodb: http://localhost:27017 (db by default will be called mean-docker)
 
 ## Code scaffolding
