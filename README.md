@@ -1,12 +1,12 @@
 # AngularClient
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
+This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-.
 
 ## Build Dockerfile
-FOR ANGULAR-CLIENT
-docker build -t angular-client:dev .
-FOR EXPRESS-SERVER
-docker build -t express-server:dev .
+FOR ANGULAR-CLIENT <br /n>
+docker build -t angular-client:dev . <br /n>
+FOR EXPRESS-SERVER <br /n>
+docker build -t express-server:dev . <br /n>
 
 
 ## Development server
