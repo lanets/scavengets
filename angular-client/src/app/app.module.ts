@@ -10,6 +10,7 @@ import {Routing} from "./app.routing";
 import {TeamsComponent} from "./teams/teams.component";
 import {ChallengesComponent} from "./challenges/challenges.component";
 import {HomeComponent} from "./home/home.component";
+import {JudgeComponent} from "./judge/judge.component";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {HomeComponent} from "./home/home.component";
     HeaderComponent,
     TeamsComponent,
     ChallengesComponent,
-    HomeComponent
+    HomeComponent,
+    JudgeComponent
   ],
   imports: [
     BrowserModule,
