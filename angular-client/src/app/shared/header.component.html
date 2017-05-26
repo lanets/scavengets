@@ -1,20 +1,24 @@
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" (click)="isExpanded = !isExpanded" [attr.aria-expanded]="!isExpanded" aria-controls="navbarContent">
+      <button type="button"
+              class="navbar-toggle collapsed"
+              (click)="toggleState()">
+        <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
+
       <a class="navbar-brand" [routerLink]="['/home']">Scavenger Hunt</a>
     </div>
-    <div class="collapse navbar-collapse">
+    <div class="collapse navbar-collapse" [ngClass]="{ 'in': isIn }">
     <ul class="nav navbar-nav nav-pills">
       <li routerLinkActive="active"><a [routerLink]="['/teams']">Teams</a></li>
       <li routerLinkActive="active"><a [routerLink]="['/challenges']">Challenges</a></li>
       <li routerLinkActive="active"><a [routerLink]="['/judge']">Judge</a></li>
     </ul>
-      <!-- A faire un login partial avec plus tard-->
+      <!-- A faire un login partial avec plus tard -->
     <ul class="nav navbar-nav navbar-right">
       <li><a [routerLink]="['/auth/signup']"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li><a [routerLink]="['/auth/signin']"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>

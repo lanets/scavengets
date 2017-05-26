@@ -8,5 +8,11 @@ import { Component } from "@angular/core";
 })
 
 export class HeaderComponent {
+  isIn = false;
+  toggleState(){
+    let bool = this.isIn;
+    this.isIn = bool === false ? true: false;
+  }
 
 }
+
