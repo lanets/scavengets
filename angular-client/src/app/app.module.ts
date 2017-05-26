@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
@@ -11,6 +11,12 @@ import {TeamsComponent} from "./teams/teams.component";
 import {ChallengesComponent} from "./challenges/challenges.component";
 import {HomeComponent} from "./home/home.component";
 import {JudgeComponent} from "./judge/judge.component";
+import {LogoutComponent} from "./auth/logout.component";
+import {SignupComponent} from "./auth/signup.component";
+import {SigninComponent} from "./auth/signin.component";
+import {ChallengeComponent} from "./challenges/challenge.component";
+import {ChallengeInputComponent} from "./challenges/challenge-input.component";
+import {ChallengeListComponent} from "./challenges/challenge-list.component";
 
 @NgModule({
   declarations: [
@@ -19,14 +25,21 @@ import {JudgeComponent} from "./judge/judge.component";
     HeaderComponent,
     TeamsComponent,
     ChallengesComponent,
+    ChallengeComponent,
+    ChallengeInputComponent,
+    ChallengeListComponent,
     HomeComponent,
-    JudgeComponent
+    JudgeComponent,
+    LogoutComponent,
+    SignupComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    Routing
+    Routing,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

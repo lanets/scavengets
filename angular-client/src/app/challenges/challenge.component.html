@@ -1,0 +1,16 @@
+<h1>Challenges</h1>
+<article class="panel panel-default">
+  <div class="panel-body">
+    {{ challenge.title }}
+    {{ challenge.description }}
+  </div>
+  <footer class="panel-footer">
+    <div class="author">
+      {{ challenge.points }}
+    </div>
+    <div class="config">
+      <a (click)="onEdit()">Edit</a>
+      <a (click)="onDelete()">Delete</a>
+    </div>
+  </footer>
+</article>
