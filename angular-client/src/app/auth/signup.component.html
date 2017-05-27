@@ -1,21 +1,40 @@
 <div class="col-md-8 col-md-offset-2">
   <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <label for="userName">First Name</label>
-      <input type="text" id="firstName" class="form-control" formControlName="firstName">
+      <label for="firstName">First Name</label>
+      <input
+        type="text"
+        id="firstName"
+        class="form-control"
+        formControlName="firstName">
     </div>
     <div class="form-group">
-      <label for="userName">Last Name</label>
-      <input type="text" id="lastName" class="form-control" formControlName="lastName">
+      <label for="lastName">Last Name</label>
+      <input
+        type="text"
+        id="lastName"
+        class="form-control"
+        formControlName="lastName">
     </div>
     <div class="form-group">
       <label for="userName">Username</label>
-      <input type="text" id="userName" class="form-control" formControlName="userName">
+      <input
+        type="text"
+        id="userName"
+        class="form-control"
+        formControlName="userName">
     </div>
     <div class="form-group">
-      <label for="userName">Password</label>
-      <input type="text" id="password" class="form-control" formControlName="password">
+      <label for="pwd">Password</label>
+      <input
+        type="password"
+        id="pwd"
+        class="form-control"
+        formControlName="pwd">
     </div>
-    <button class="btn btn-primary" type="submit" [disabled]="!myForm.valid">Submit</button>
+    <button
+      class="btn btn-primary"
+      type="submit"
+      [disabled]="!myForm.valid">Submit</button>
   </form>
 </div>

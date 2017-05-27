@@ -17,6 +17,9 @@ import {SigninComponent} from "./auth/signin.component";
 import {ChallengeComponent} from "./challenges/challenge.component";
 import {ChallengeInputComponent} from "./challenges/challenge-input.component";
 import {ChallengeListComponent} from "./challenges/challenge-list.component";
+import {AuthService} from "./auth/auth.service";
+import {ErrorService} from "./errors/error.service";
+import {ErrorComponent} from "./errors/error.component";
 
 @NgModule({
   declarations: [
@@ -32,7 +35,8 @@ import {ChallengeListComponent} from "./challenges/challenge-list.component";
     JudgeComponent,
     LogoutComponent,
     SignupComponent,
-    SigninComponent
+    SigninComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +45,7 @@ import {ChallengeListComponent} from "./challenges/challenge-list.component";
     Routing,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AuthService, ErrorService], //provide to all of the application
   bootstrap: [AppComponent]
 })
 export class AppModule { }

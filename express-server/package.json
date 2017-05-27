@@ -6,9 +6,18 @@
     "start": "node server.js"
   },
   "dependencies": {
+    "bcryptjs": "^2.1.0",
     "body-parser": "~1.17.2m",
     "express": "~4.15.0",
+    "express-jwt": "^3.0.1",
+    "lodash": "^3.10.0",
+    "jsonwebtoken": "^5.0.2",
     "mongoose": "4.10.2",
-    "mongoose-unique-validator": "1.0.5"
+    "mongoose-unique-validator": "1.0.5",
+    "request": "^2.58.0",
+    "rootpath": "^0.1.2",
+    "cookie-parser": "^1.4.3",
+    "serve-favicon": "2.4.3",
+    "morgan": "^1.8.2"
   }
 }
