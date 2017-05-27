@@ -16,7 +16,7 @@ FOR MONGODB (we use the image on dockerhub) <br>
 
 ## Development server
 `docker-compose up` <br>
-AFTER CHANGES <br>
+AFTER CHANGES (*note*: changing front end code doesn't require this) <br>
 `docker-compose up --build`
 
 ## localhost

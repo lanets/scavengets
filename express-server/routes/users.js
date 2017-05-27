@@ -3,7 +3,7 @@ const router = express.Router()
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const User = require('../models/user')
-const jwtSecret = 'secret' // to be changed to a real secret in prod
+// const jwtSecret = 'secret' // to be changed to a real secret in prod
 
 // routes
 router.post('/', register)
@@ -18,7 +18,7 @@ function register (req, res, next) {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     userName: req.body.userName,
-    password: bcrypt.hashSync(req.body.pwd, 10)
+    password: bcrypt.hashSync(req.body.pwd, bcrypt.genSaltSync(10), null)
   })
   user.save(function (err, result) {
     if (err) {
@@ -35,9 +35,7 @@ function register (req, res, next) {
 }
 
 function authenticate (req, res, next) {
-  User.findOne({
-    userName: req.body.userName
-  }, function (err, user) {
+  User.findOne({userName: req.body.userName}, function (err, user) {
     if (err) {
       return res.status(500).json({
         title: 'An error occurred',
@@ -46,25 +44,17 @@ function authenticate (req, res, next) {
     }
     if (!user) {
       return res.status(401).json({
-        title: 'Login failed',
-        error: {
-          message: 'Invalid login credentials'
-        }
+        title: 'no user found', // temporary for debugging
+        error: {message: 'user could not be found'}
       })
     }
-    if (!bcrypt.compareSync(req.body.password, user.password)) {
+    if (!bcrypt.compareSync(req.body.pwd, user.password)) {
       return res.status(401).json({
         title: 'Login failed',
-        error: {
-          message: 'Invalid login credentials'
-        }
+        error: {message: 'Invalid login credentials'}
       })
     }
-    var token = jwt.sign({
-      user: user
-    }, jwtSecret, {
-      expiresIn: 7200
-    })
+    var token = jwt.sign({user: user}, 'jwtSecret', {expiresIn: 7200})
     res.status(200).json({
       message: 'Successfully logged in',
       token: token,
