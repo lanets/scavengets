@@ -11,7 +11,6 @@ import {TeamsComponent} from "./teams/teams.component";
 import {ChallengesComponent} from "./challenges/challenges.component";
 import {HomeComponent} from "./home/home.component";
 import {JudgeComponent} from "./judge/judge.component";
-import {LogoutComponent} from "./auth/logout.component";
 import {SignupComponent} from "./auth/signup.component";
 import {SigninComponent} from "./auth/signin.component";
 import {ChallengeComponent} from "./challenges/challenge.component";
@@ -33,7 +32,6 @@ import {ErrorComponent} from "./errors/error.component";
     ChallengeListComponent,
     HomeComponent,
     JudgeComponent,
-    LogoutComponent,
     SignupComponent,
     SigninComponent,
     ErrorComponent
