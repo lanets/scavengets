@@ -16,10 +16,11 @@ export class SignupComponent implements OnInit{
 
   onSubmit() {
     const user = new User(
+      this.myForm.value.userName,
+      this.myForm.value.pwd,
       this.myForm.value.firstName,
       this.myForm.value.lastName,
-      this.myForm.value.userName,
-      this.myForm.value.pwd
+
     );
     this.authService.signup(user)
       .subscribe(

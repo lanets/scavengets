@@ -1,57 +1,59 @@
 // Get dependencies
-const express = require('express');
-const path = require('path');
-const favicon = require('serve-favicon');
-const logger = require('morgan');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
-const http = require('http');
+var express = require('express')
+// const path = require('path')
+// const favicon = require('serve-favicon')
+var logger = require('morgan')
+var cookieParser = require('cookie-parser')
+var bodyParser = require('body-parser')
+var mongoose = require('mongoose')
+var http = require('http')
 
-// Get our API routes
-const apiRoutes = require('./routes/api');
-const userRoutes = require('./routes/users');
-const challengeRoutes = require('./routes/challenges');
 // MongoDB URL from the docker-compose file
-const dbHost = 'mongodb://database/mean-docker';
+var dbHost = 'mongodb://database/mean-docker'
 
-
-const app = express();
-// Connect to mongodb
-mongoose.connect(dbHost);
-
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(cookieParser());
-//app.use(express.static(path.join(__dirname, 'public')));
-
-app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-    res.setHeader('Access-Control-Allow-Methods', 'POST, GET, PATCH, DELETE, OPTIONS');
-    next();
-});
-
-// Set our api routes
-app.use('/user', userRoutes);
-app.use('/challenge', challengeRoutes);
-app.use('/', apiRoutes);
+var app = express()
 
 /**
  * Get port from environment and store in Express.
  */
-const port = process.env.PORT || '3000';
-app.set('port', port);
+const port = process.env.PORT || '3000'
+app.set('port', port)
+
+// Connect to mongodb
+mongoose.Promise = global.Promise
+mongoose.connect(dbHost)
+
+// uncomment after placing your favicon in /public
+// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: true}))
+app.use(logger('dev'))
+app.use(cookieParser())
+// app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(function (req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
+  res.setHeader('Access-Control-Allow-Methods', 'POST, GET, PATCH, DELETE, OPTIONS')
+  next()
+})
+
+// Get our API routes
+var apiRoutes = require('./routes/api')
+var userRoutes = require('./routes/users')
+var challengeRoutes = require('./routes/challenges')
+
+// Set our api routes
+app.use('/user', userRoutes)
+app.use('/challenge', challengeRoutes)
+app.use('/', apiRoutes)
 
 /**
  * Create HTTP server.
  */
-const server = http.createServer(app);
+const server = http.createServer(app)
 
 /**
  * Listen on provided port, on all network interfaces.
  */
-server.listen(port, () => console.log(`API running on localhost:${port}`));
+server.listen(port, () => console.log(`API running on localhost:${port}`))
