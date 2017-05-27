@@ -54,6 +54,7 @@ function authenticate (req, res, next) {
         error: {message: 'Invalid login credentials'}
       })
     }
+    // expiresIn in seconds, so currently set for 2 hours
     var token = jwt.sign({user: user}, 'jwtSecret', {expiresIn: 7200})
     res.status(200).json({
       message: 'Successfully logged in',

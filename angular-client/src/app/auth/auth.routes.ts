@@ -9,4 +9,3 @@ export const AUTH_ROUTES: Routes = [
   { path: 'signin', component: SigninComponent },
   { path: 'logout', component: LogoutComponent }
 ];
-

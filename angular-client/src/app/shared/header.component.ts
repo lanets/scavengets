@@ -1,4 +1,6 @@
 import { Component } from "@angular/core";
+import { Router } from "@angular/router";
+import { AuthService } from "../auth/auth.service";
 
 @Component({
   selector: 'app-header',
@@ -14,5 +16,15 @@ export class HeaderComponent {
     this.isIn = bool === false ? true: false;
   }
 
-}
+  constructor(private authService: AuthService, private router: Router){}
 
+  isLoggedIn(){
+    return this.authService.isLoggedIn();
+  }
+
+  onLogout(){
+    this.authService.logout()
+    this.router.navigate(['/auth', 'signin'])
+  }
+
+}
