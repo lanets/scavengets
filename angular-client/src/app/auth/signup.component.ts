@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import { Router } from "@angular/router"
 import {AuthService} from "./auth.service";
 import {User} from "./user.model";
+import { PasswordValidation } from "./password-validator";
 
 @Component({
   selector: 'app-signup',
@@ -11,6 +12,9 @@ import {User} from "./user.model";
 
 export class SignupComponent implements OnInit{
   myForm: FormGroup;
+  private data: any;
+  private parseError: boolean;
+  private passwordConfirm: boolean = false;
 
   //inject auth.service.ts
   constructor(private authService: AuthService, private router: Router){}
@@ -38,6 +42,7 @@ export class SignupComponent implements OnInit{
       lastName: new FormControl(null, Validators.required),
       userName: new FormControl(null, Validators.required),
       pwd: new FormControl(null, Validators.required),
+      confirmPassword: new FormControl(null, Validators.required)
     });
   }
 

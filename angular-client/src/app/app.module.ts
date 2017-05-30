@@ -19,6 +19,8 @@ import {ChallengeListComponent} from "./challenges/challenge-list.component";
 import {AuthService} from "./auth/auth.service";
 import {ErrorService} from "./errors/error.service";
 import {ErrorComponent} from "./errors/error.component";
+import {AccountComponent} from "./auth/account.component";
+import {CanActivateViaAuthGuard} from "./auth/can-activate";
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import {ErrorComponent} from "./errors/error.component";
     JudgeComponent,
     SignupComponent,
     SigninComponent,
-    ErrorComponent
+    ErrorComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,7 @@ import {ErrorComponent} from "./errors/error.component";
     Routing,
     ReactiveFormsModule
   ],
-  providers: [AuthService, ErrorService], //provide to all of the application
+  providers: [AuthService, ErrorService, CanActivateViaAuthGuard], //provide to all of the application
   bootstrap: [AppComponent]
 })
 export class AppModule { }

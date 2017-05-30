@@ -22,6 +22,7 @@
     <ul class="nav navbar-nav navbar-right">
       <li><a [routerLink]="['/auth/signup']" *ngIf="!isLoggedIn()"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li><a [routerLink]="['/auth/signin']" *ngIf="!isLoggedIn()"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li><a [routerLink]="['/account']" *ngIf="isLoggedIn()"><span class="glyphicon glyphicon-user"></span> Account</a></li>
       <li (click)="onLogout()"><a *ngIf="isLoggedIn()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
     </ul>
     </div>
