@@ -1,2 +1,4 @@
 angular-client/node_module/*
 .idea/*
+.idea/
+/express-server/node_modules/
