@@ -1,1 +1,1 @@
-// export * from "./models/service-example";
+export { ErrorService} from './error.service';
