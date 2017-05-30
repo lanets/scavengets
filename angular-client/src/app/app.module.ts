@@ -16,7 +16,7 @@ import {SigninComponent} from './modules/authentification/signin.component';
 import {ChallengeComponent} from './modules/challenges/challenge.component';
 import {ChallengeInputComponent} from './modules/challenges/challenge-input.component';
 import {ChallengeListComponent} from './modules/challenges/challenge-list.component';
-import {AuthService} from './modules/authentification/auth.service';
+import {AuthService} from './shared/services/auth.service';
 import {ErrorService} from './shared/services/error.service';
 import {AccountComponent} from './modules/authentification/account.component';
 import {CanActivateViaAuthGuard} from './modules/authentification/can-activate';

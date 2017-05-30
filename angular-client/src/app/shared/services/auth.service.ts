@@ -1,21 +1,28 @@
-import {User} from '../../shared/models/user.model';
-import {Injectable} from '@angular/core';
-import {Http, Headers, Response} from '@angular/http';
+import { Injectable } from '@angular/core';
+import { Http, Headers, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
-import {Observable} from 'rxjs/Observable';
-import {ErrorService} from '../../shared/services/error.service';
+
+import { User } from '@models';
+import { ErrorService } from '@services';
+
 
 @Injectable()
-
 export class AuthService {
   // Link to our api, pointing to localhost
   API = 'http://localhost:3000';
 
-  constructor(private http: Http, private errorService: ErrorService){}
+  public static logout() { localStorage.clear(); }
+  public static isLoggedIn() { return localStorage.getItem('token') !== null; }
+  public static getToken() { return localStorage.getItem('token'); }
 
-  signup(user: User) {
+  constructor(private http: Http, private errorService: ErrorService) {  }
+
+  public signup(user: User) {
+
     const body = JSON.stringify(user);
     const headers = new Headers({'Content-Type': 'application/json'});
+
     return this.http.post(`${this.API}/user`, body, {headers: headers})
       .map((response: Response) => response.json())
       .catch((error: Response) => {
@@ -24,7 +31,7 @@ export class AuthService {
       });
   }
 
-  signin(user: User){
+  public signin(user: User) {
     const body = JSON.stringify(user);
     const headers = new Headers({'Content-Type': 'application/json'});
     return this.http.post(`${this.API}/user/signin`, body, {headers: headers})
@@ -35,15 +42,4 @@ export class AuthService {
       });
   }
 
-  logout() {
-    localStorage.clear();
-  }
-
-  isLoggedIn() {
-    return localStorage.getItem('token') !== null;
-  }
-
-  getToken() {
-    return localStorage.getItem('token');
-  }
 }
