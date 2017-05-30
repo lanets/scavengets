@@ -13,6 +13,16 @@
     "target": "es5",
     "typeRoots": [
       "../node_modules/@types"
-    ]
+    ],
+    "paths": {
+      "@modules/*": ["app/modules/*"],
+      "@shared/*": ["app/shared/*"],
+      "@stubs/*": ["app/stubs/*"],
+
+      "@shared-models": ["app/shared/models/index.ts"],
+      "@shared-services": ["app/shared/services/index.ts"],
+      "@stubs-models": ["app/stubs/index.ts"],
+      "@stubs-services": ["app/stubs/index.ts"]
+    }
   }
 }
