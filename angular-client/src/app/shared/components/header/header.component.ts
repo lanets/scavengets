@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
-import { AuthService } from "../auth/auth.service";
+import { AuthService } from "../../../modules/authentification/auth.service";
 
 @Component({
   selector: 'app-header',
@@ -24,7 +24,7 @@ export class HeaderComponent {
 
   onLogout(){
     this.authService.logout()
-    this.router.navigate(['/auth', 'signin'])
+    this.router.navigate(['/authentification', 'signin'])
   }
 
 }

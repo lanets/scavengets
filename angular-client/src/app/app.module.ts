@@ -4,23 +4,23 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import {AuthenticationComponent} from "./auth/authentication.component";
-import {HeaderComponent} from "./shared/header.component";
+import {AuthenticationComponent} from "./modules/authentification/authentication.component";
+import {HeaderComponent} from "./shared/components/header/header.component";
 import {Routing} from "./app.routing";
-import {TeamsComponent} from "./teams/teams.component";
-import {ChallengesComponent} from "./challenges/challenges.component";
-import {HomeComponent} from "./home/home.component";
-import {JudgeComponent} from "./judge/judge.component";
-import {SignupComponent} from "./auth/signup.component";
-import {SigninComponent} from "./auth/signin.component";
-import {ChallengeComponent} from "./challenges/challenge.component";
-import {ChallengeInputComponent} from "./challenges/challenge-input.component";
-import {ChallengeListComponent} from "./challenges/challenge-list.component";
-import {AuthService} from "./auth/auth.service";
-import {ErrorService} from "./errors/error.service";
-import {ErrorComponent} from "./errors/error.component";
-import {AccountComponent} from "./auth/account.component";
-import {CanActivateViaAuthGuard} from "./auth/can-activate";
+import {TeamsComponent} from "./modules/teams/teams.component";
+import {ChallengesComponent} from "./modules/challenges/challenges.component";
+import {HomeComponent} from "./modules/home/home.component";
+import {JudgeComponent} from "./modules/judge/judge.component";
+import {SignupComponent} from "./modules/authentification/signup.component";
+import {SigninComponent} from "./modules/authentification/signin.component";
+import {ChallengeComponent} from "./modules/challenges/challenge.component";
+import {ChallengeInputComponent} from "./modules/challenges/challenge-input.component";
+import {ChallengeListComponent} from "./modules/challenges/challenge-list.component";
+import {AuthService} from "./modules/authentification/auth.service";
+import {ErrorService} from "./modules/errors/error.service";
+import {ErrorComponent} from "./modules/errors/error.component";
+import {AccountComponent} from "./modules/authentification/account.component";
+import {CanActivateViaAuthGuard} from "./modules/authentification/can-activate";
 
 @NgModule({
   declarations: [

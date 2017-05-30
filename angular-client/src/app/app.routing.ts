@@ -1,13 +1,13 @@
 import {RouterModule, Routes, CanActivate} from "@angular/router";
 
-import {AuthenticationComponent} from "./auth/authentication.component";
-import {TeamsComponent} from "./teams/teams.component";
-import {ChallengesComponent} from "./challenges/challenges.component";
-import {HomeComponent} from "./home/home.component";
-import {JudgeComponent} from "./judge/judge.component";
-import {AUTH_ROUTES} from "./auth/auth.routes";
-import {CanActivateViaAuthGuard} from "./auth/can-activate";
-import {AccountComponent} from "./auth/account.component"
+import {AuthenticationComponent} from "./modules/authentification/authentication.component";
+import {TeamsComponent} from "./modules/teams/teams.component";
+import {ChallengesComponent} from "./modules/challenges/challenges.component";
+import {HomeComponent} from "./modules/home/home.component";
+import {JudgeComponent} from "./modules/judge/judge.component";
+import {AUTH_ROUTES} from "./modules/authentification/auth.routes";
+import {CanActivateViaAuthGuard} from "./modules/authentification/can-activate";
+import {AccountComponent} from "./modules/authentification/account.component"
 
 const APP_ROUTES: Routes = [
   { path: '',redirectTo: '/home', pathMatch: 'full'},
