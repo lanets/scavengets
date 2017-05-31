@@ -1,8 +1,9 @@
 import { RouterModule, Routes } from '@angular/router';
 
-import { AuthenticationComponent, AccountComponent } from '@modules/authentication';
+import { AuthenticationComponent } from '@modules/authentication';
 import { AUTH_ROUTES } from '@modules/authentication/auth.routes';
 
+import { AccountComponent } from '@modules/account';
 import { ChallengesComponent } from '@modules/challenges';
 import { HomeComponent } from '@modules/home';
 import { JudgeComponent } from '@modules/judge';

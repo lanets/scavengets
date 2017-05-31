@@ -4,7 +4,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { SigninComponent, SignupComponent, AuthenticationComponent } from './index';
+import { AccountComponent } from './index';
 
 
 @NgModule({
@@ -15,15 +15,11 @@ import { SigninComponent, SignupComponent, AuthenticationComponent } from './ind
     ReactiveFormsModule
   ],
   declarations: [
-    AuthenticationComponent,
-    SignupComponent,
-    SigninComponent
+    AccountComponent
   ],
   exports: [
-    AuthenticationComponent,
-    SigninComponent,
-    SignupComponent
+    AccountComponent
   ]
 })
 
-export class AuthenticationModule { }
+export class AccountModule { }
