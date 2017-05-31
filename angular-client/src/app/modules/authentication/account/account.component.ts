@@ -8,8 +8,6 @@ import { AuthService } from '@services';
 })
 export class AccountComponent {
 
-  constructor(private authService: AuthService){}
+  constructor(private authService: AuthService) {}
 
-
-
-  }
+}

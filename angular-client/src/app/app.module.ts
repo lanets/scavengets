@@ -3,14 +3,14 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { AppComponent } from './app.component';
 import { Routing } from './app.routing';
+import { CanActivateAuthentificationGuard } from '@route-guards';
 
-import { HeaderComponent, ErrorModule } from '@shared-modules';
-import { AuthService, ErrorService } from '@services';
+import { AppComponent } from './app.component';
 
 import { AuthenticationModule, ChallengesModule, HomeModule, JudgeModule, TeamsModule } from '@app-modules';
-import { CanActivateAuthentificationGuard } from '@route-guards';
+import { HeaderComponent, ErrorModule } from '@shared-modules';
+import { AuthService, ErrorService } from '@services';
 
 
 @NgModule({
