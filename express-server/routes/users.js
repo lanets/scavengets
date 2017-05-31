@@ -18,7 +18,7 @@ function register (req, res, next) {
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     userName: req.body.userName,
-    password: bcrypt.hashSync(req.body.pwd, bcrypt.genSaltSync(10), null)
+    password: bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10), null)
   })
   user.save(function (err, result) {
     if (err) {
@@ -48,7 +48,7 @@ function authenticate (req, res, next) {
         error: {message: 'user could not be found'}
       })
     }
-    if (!bcrypt.compareSync(req.body.pwd, user.password)) {
+    if (!bcrypt.compareSync(req.body.password, user.password)) {
       return res.status(401).json({
         title: 'Login failed',
         error: {message: 'Invalid login credentials'}

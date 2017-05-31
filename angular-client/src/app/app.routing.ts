@@ -18,7 +18,7 @@ const APP_ROUTES: Routes = [
   { path: 'teams', component: TeamsComponent },
   { path: 'challenges', component: ChallengesComponent },
   { path: 'judge', component: JudgeComponent },
-  { path: 'auth', component: AuthenticationComponent, children: AUTH_ROUTES },
+  { path: 'authentication', component: AuthenticationComponent, children: AUTH_ROUTES },
   { path: 'account', component: AccountComponent, canActivate: [CanActivateAuthentificationGuard] }
 ];
 

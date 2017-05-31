@@ -42,4 +42,12 @@ export class AuthService {
       });
   }
 
+  public getCurrentUser(): User {
+    return null;
+  }
+
+  public getUserRoles(): Array<any> {
+    return [];
+  }
+
 }
