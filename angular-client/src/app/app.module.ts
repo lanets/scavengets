@@ -1,17 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import {HeaderComponent} from './shared/modules/header/header.component';
-import {Routing} from './app.routing';
-import {AuthService} from './shared/services/auth.service';
-import {ErrorService} from './shared/services/error.service';
-import {CanActivateAuthentificationGuard} from './modules/authentication/authentication-guard';
+import { Routing } from './app.routing';
 
-import { ErrorModule } from '@shared-modules';
+import { HeaderComponent, ErrorModule } from '@shared-modules';
+import { AuthService, ErrorService } from '@services';
+
 import { AuthenticationModule, ChallengesModule, HomeModule, JudgeModule, TeamsModule } from '@app-modules';
+import { CanActivateAuthentificationGuard } from '@route-guards';
 
 
 @NgModule({

@@ -6,7 +6,7 @@ import {ChallengesComponent} from "./modules/challenges/challenges.component";
 import {HomeComponent} from "./modules/home/home.component";
 import {JudgeComponent} from "./modules/judge/judge.component";
 import {AUTH_ROUTES} from "./modules/authentication/auth.routes";
-import {CanActivateAuthentificationGuard} from "./modules/authentication/authentication-guard";
+import {CanActivateAuthentificationGuard} from "./shared/services/route-guards/authentication-guard";
 import {AccountComponent} from "./modules/authentication/account/account.component"
 
 const APP_ROUTES: Routes = [
