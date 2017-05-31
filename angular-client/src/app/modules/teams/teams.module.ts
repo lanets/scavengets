@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
 
-import { JudgeComponent } from './index';
+import { TeamsComponent } from './index';
 
 
 @NgModule({
@@ -11,10 +11,10 @@ import { JudgeComponent } from './index';
     HttpModule,
   ],
   declarations: [
-    JudgeComponent
+    TeamsComponent
   ],
   exports: [
-    JudgeComponent
+    TeamsComponent
   ]
 })
-export class JudgeModule { }
+export class TeamsModule { }

@@ -6,13 +6,12 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import {HeaderComponent} from './shared/modules/header/header.component';
 import {Routing} from './app.routing';
-import {TeamsComponent} from './modules/teams/teams.component';
 import {AuthService} from './shared/services/auth.service';
 import {ErrorService} from './shared/services/error.service';
 import {CanActivateAuthentificationGuard} from './modules/authentication/authentication-guard';
 
 import { ErrorModule } from '@shared-modules';
-import { AuthenticationModule, ChallengesModule, HomeModule, JudgeModule } from '@app-modules';
+import { AuthenticationModule, ChallengesModule, HomeModule, JudgeModule, TeamsModule } from '@app-modules';
 
 
 @NgModule({
@@ -27,12 +26,12 @@ import { AuthenticationModule, ChallengesModule, HomeModule, JudgeModule } from 
     ErrorModule,
     AuthenticationModule,
     ChallengesModule,
-    JudgeModule
+    JudgeModule,
+    TeamsModule
   ],
   declarations: [
     AppComponent,
     HeaderComponent,
-    TeamsComponent,
   ],
   providers: [
     AuthService,
