@@ -7,14 +7,13 @@ import { AppComponent } from './app.component';
 import {HeaderComponent} from './shared/modules/header/header.component';
 import {Routing} from './app.routing';
 import {TeamsComponent} from './modules/teams/teams.component';
-import {HomeComponent} from './modules/home/home.component';
 import {JudgeComponent} from './modules/judge/judge.component';
 import {AuthService} from './shared/services/auth.service';
 import {ErrorService} from './shared/services/error.service';
 import {CanActivateAuthentificationGuard} from './modules/authentication/authentication-guard';
 
 import { ErrorModule } from '@shared-modules';
-import { AuthenticationModule, ChallengesModule } from '@app-modules';
+import { AuthenticationModule, ChallengesModule, HomeModule } from '@app-modules';
 
 
 @NgModule({
@@ -25,6 +24,7 @@ import { AuthenticationModule, ChallengesModule } from '@app-modules';
     Routing,
     ReactiveFormsModule,
 
+    HomeModule,
     ErrorModule,
     AuthenticationModule,
     ChallengesModule
@@ -33,7 +33,6 @@ import { AuthenticationModule, ChallengesModule } from '@app-modules';
     AppComponent,
     HeaderComponent,
     TeamsComponent,
-    HomeComponent,
     JudgeComponent,
   ],
   providers: [
