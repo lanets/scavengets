@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+
 
 @Component({
   selector: 'app-teams',
@@ -6,7 +7,4 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./teams.component.css']
 
 })
-
-export class TeamsComponent {
-
-}
+export class TeamsComponent { }

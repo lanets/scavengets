@@ -10,7 +10,7 @@ import { AuthService } from '@services';
   selector: 'app-signin',
   templateUrl: './signin.component.html'
 })
-export class SigninComponent implements OnInit{
+export class SigninComponent implements OnInit {
   myForm: FormGroup;
 
   constructor(private authService: AuthService, private router: Router ) {}

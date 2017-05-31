@@ -1,20 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { AppComponent } from './app.component';
-import {HeaderComponent} from './shared/modules/header/header.component';
-import {Routing} from './app.routing';
-import {TeamsComponent} from './modules/teams/teams.component';
-import {HomeComponent} from './modules/home/home.component';
-import {JudgeComponent} from './modules/judge/judge.component';
-import {AuthService} from './shared/services/auth.service';
-import {ErrorService} from './shared/services/error.service';
-import {CanActivateAuthentificationGuard} from './modules/authentication/authentication-guard';
+import { Routing } from './app.routing';
+import { CanActivateAuthentificationGuard } from '@route-guards';
 
-import { ErrorModule } from '@shared-modules';
-import { AuthenticationModule, ChallengesModule } from '@app-modules';
+import { AppComponent } from './app.component';
+
+import { AuthenticationModule, ChallengesModule, HomeModule, JudgeModule, TeamsModule } from '@app-modules';
+import { HeaderComponent, ErrorModule } from '@shared-modules';
+import { AuthService, ErrorService } from '@services';
 
 
 @NgModule({
@@ -25,16 +21,16 @@ import { AuthenticationModule, ChallengesModule } from '@app-modules';
     Routing,
     ReactiveFormsModule,
 
+    HomeModule,
     ErrorModule,
     AuthenticationModule,
-    ChallengesModule
+    ChallengesModule,
+    JudgeModule,
+    TeamsModule
   ],
   declarations: [
     AppComponent,
     HeaderComponent,
-    TeamsComponent,
-    HomeComponent,
-    JudgeComponent,
   ],
   providers: [
     AuthService,
