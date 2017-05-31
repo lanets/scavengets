@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": "",
+    "baseUrl": "./",
     "declaration": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -13,6 +13,18 @@
     "target": "es5",
     "typeRoots": [
       "../node_modules/@types"
-    ]
+    ],
+    "paths": {
+      "@assets/*": ["assets/*"],
+
+      "@modules/*": ["app/modules/*"],
+      "@stubs/*": ["app/stubs/*"],
+
+      "@shared-modules": ["app/shared/modules/index.ts"],
+      "@models": ["app/shared/models/index.ts"],
+      "@services": ["app/shared/services/index.ts"],
+      "@stubs-models": ["app/stubs/index.ts"],
+      "@stubs-services": ["app/stubs/index.ts"]
+    }
   }
 }
