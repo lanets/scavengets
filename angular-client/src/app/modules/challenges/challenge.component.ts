@@ -1,7 +1,8 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input } from '@angular/core';
 
-import { Challenge } from "./challenge.model";
-import { ChallengeService } from "./challenge.service";
+import { Challenge } from '@models';
+import { ChallengeService } from '@services';
+
 
 @Component({
   selector: 'app-challenge',

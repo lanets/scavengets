@@ -1,7 +1,8 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 
-import { Challenge } from "./challenge.model";
-import { ChallengeService } from "./challenge.service";
+import { Challenge } from '@models';
+import { ChallengeService } from '@services';
+
 
 @Component({
   selector: 'app-challenge-list',
@@ -14,7 +15,8 @@ import { ChallengeService } from "./challenge.service";
   `
 })
 export class ChallengeListComponent implements OnInit {
-  challenges: Challenge[];
+
+  public challenges: Challenge[];
 
   constructor(private challengeService: ChallengeService) {}
 

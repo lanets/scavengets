@@ -4,8 +4,7 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { AccountComponent, SigninComponent, SignupComponent } from './index';
-import { AuthenticationComponent } from './authentication.component';
+import { AccountComponent, SigninComponent, SignupComponent, AuthenticationComponent } from './index';
 
 
 @NgModule({
