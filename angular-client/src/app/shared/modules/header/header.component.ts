@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
-import { AuthService } from "../../../modules/authentification/auth.service";
+import { AuthService } from "../../services/auth.service";
 
 @Component({
   selector: 'app-header',
@@ -19,12 +19,12 @@ export class HeaderComponent {
   constructor(private authService: AuthService, private router: Router){}
 
   isLoggedIn(){
-    return this.authService.isLoggedIn();
+    return AuthService.isLoggedIn();
   }
 
   onLogout(){
-    this.authService.logout()
-    this.router.navigate(['/authentification', 'signin'])
+    AuthService.logout()
+    this.router.navigate(['/authentication', 'signin'])
   }
 
 }

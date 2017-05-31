@@ -1,23 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from './auth.service';
+
+import { AuthService } from '@services';
 import { User } from '@models';
-// import { PasswordValidation } from "./password-validator";
+
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html'
 })
+export class SignupComponent implements OnInit {
 
-export class SignupComponent implements OnInit{
   myForm: FormGroup;
   private data: any;
   private parseError: boolean;
   private passwordConfirm = false;
 
-  // inject authentification.service.ts
-  constructor(private authService: AuthService, private router: Router){}
+  // inject authentication.service.ts
+  constructor(private authService: AuthService, private router: Router) {}
 
   onSubmit() {
     const user = new User(
@@ -32,11 +33,11 @@ export class SignupComponent implements OnInit{
         data => console.log(data),
         error => console.error(error)
       );
-    this.router.navigate(['/authentification', 'signin']);
+    this.router.navigate(['/authentication', 'signin']);
     this.myForm.reset();
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.myForm = new FormGroup({
       firstName: new FormControl(null, Validators.required),
       lastName: new FormControl(null, Validators.required),
@@ -45,6 +46,5 @@ export class SignupComponent implements OnInit{
       confirmPassword: new FormControl(null, Validators.required)
     });
   }
-
 
 }
