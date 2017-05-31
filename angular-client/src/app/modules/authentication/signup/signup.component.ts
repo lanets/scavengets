@@ -17,7 +17,7 @@ export class SignupComponent implements OnInit {
   private parseError: boolean;
   private passwordConfirm = false;
 
-  // inject authentification.service.ts
+  // inject authentication.service.ts
   constructor(private authService: AuthService, private router: Router) {}
 
   onSubmit() {
@@ -33,7 +33,7 @@ export class SignupComponent implements OnInit {
         data => console.log(data),
         error => console.error(error)
       );
-    this.router.navigate(['/authentification', 'signin']);
+    this.router.navigate(['/authentication', 'signin']);
     this.myForm.reset();
   }
 

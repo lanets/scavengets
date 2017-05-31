@@ -24,7 +24,7 @@ export class HeaderComponent {
 
   onLogout(){
     AuthService.logout()
-    this.router.navigate(['/authentification', 'signin'])
+    this.router.navigate(['/authentication', 'signin'])
   }
 
 }

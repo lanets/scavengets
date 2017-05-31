@@ -15,10 +15,10 @@ import {ChallengeInputComponent} from './modules/challenges/challenge-input.comp
 import {ChallengeListComponent} from './modules/challenges/challenge-list.component';
 import {AuthService} from './shared/services/auth.service';
 import {ErrorService} from './shared/services/error.service';
-import {CanActivateAuthentificationGuard} from './modules/authentification/authentification-guard';
+import {CanActivateAuthentificationGuard} from './modules/authentication/authentication-guard';
 
 import { ErrorModule } from '@shared-modules';
-import { AuthentificationModule } from '@app-modules';
+import { AuthenticationModule } from '@app-modules';
 
 
 @NgModule({
@@ -30,7 +30,7 @@ import { AuthentificationModule } from '@app-modules';
     ReactiveFormsModule,
 
     ErrorModule,
-    AuthentificationModule
+    AuthenticationModule
   ],
   declarations: [
     AppComponent,
