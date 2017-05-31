@@ -1,9 +1,9 @@
 import {EventEmitter, Injectable} from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/Rx';
-import {Observable} from "rxjs/Observable";
-import {error} from "util";
-import {Challenge} from "./challenge.model";
+import {Observable} from 'rxjs/Observable';
+
+import {Challenge} from '@models';
 
 @Injectable()
 
@@ -25,17 +25,17 @@ export class ChallengeService{
       .map(res => {
         const result = res.json();
         const cha = new Challenge(result.obj.title, result.obj.description, result.obj.points, result.obj._id);
-        this.challenges.push(cha)
-      })
+        this.challenges.push(cha);
+      });
   }
 
   // Get all users from the API
   getAllChallenges() {
     return this.http.get(`${this.API}/challenges`)
-      .map(res =>{
+      .map(res => {
         const challenges = res.json().obj;
-        let transformedChallenges: Challenge[] = [];
-        for (let challenge of challenges){
+        const transformedChallenges: Challenge[] = [];
+        for (const challenge of challenges){
           transformedChallenges.push(new Challenge(challenge.title, challenge.description, challenge.points, challenge._id));
         }
         this.challenges = transformedChallenges;
