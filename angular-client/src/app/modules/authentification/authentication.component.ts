@@ -1,16 +1,17 @@
-import { Component } from "@angular/core";
-import { AuthService } from "../../shared/services/auth.service";
+import { Component } from '@angular/core';
+
+import { AuthService } from '@services';
 
 @Component({
   selector: 'app-authentication',
   templateUrl: './authentication.component.html'
 })
 
+
 export class AuthenticationComponent {
 
-  constructor(private authService: AuthService){}
+  public static isLoggedIn() { return AuthService.isLoggedIn(); }
 
-    isLoggedIn(){
-      return AuthService.isLoggedIn();
-    }
+  constructor(private authService: AuthService) {}
+
   }

@@ -20,9 +20,10 @@
       "@modules/*": ["app/modules/*"],
       "@stubs/*": ["app/stubs/*"],
 
-      "@shared-modules": ["app/shared/modules/index.ts"],
       "@models": ["app/shared/models/index.ts"],
       "@services": ["app/shared/services/index.ts"],
+      "@shared-modules": ["app/shared/modules/index.ts"],
+      "@app-modules": ["app/modules/index.ts"],
       "@stubs-models": ["app/stubs/index.ts"],
       "@stubs-services": ["app/stubs/index.ts"]
     }

@@ -6,8 +6,8 @@ import {ChallengesComponent} from "./modules/challenges/challenges.component";
 import {HomeComponent} from "./modules/home/home.component";
 import {JudgeComponent} from "./modules/judge/judge.component";
 import {AUTH_ROUTES} from "./modules/authentification/auth.routes";
-import {CanActivateViaAuthGuard} from "./modules/authentification/can-activate";
-import {AccountComponent} from "./modules/authentification/account.component"
+import {CanActivateAuthentificationGuard} from "./modules/authentification/authentification-guard";
+import {AccountComponent} from "./modules/authentification/account/account.component"
 
 const APP_ROUTES: Routes = [
   { path: '',redirectTo: '/home', pathMatch: 'full'},
@@ -16,7 +16,7 @@ const APP_ROUTES: Routes = [
   { path: 'challenges', component: ChallengesComponent},
   { path: 'judge', component: JudgeComponent},
   { path: 'auth', component: AuthenticationComponent, children: AUTH_ROUTES},
-  { path: 'account', component: AccountComponent, canActivate:[CanActivateViaAuthGuard] }
+  { path: 'account', component: AccountComponent, canActivate:[CanActivateAuthentificationGuard] }
 ];
 
 export const Routing = RouterModule.forRoot(APP_ROUTES);
