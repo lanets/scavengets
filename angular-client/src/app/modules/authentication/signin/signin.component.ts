@@ -16,9 +16,9 @@ export class SigninComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router ) {}
 
   onSubmit() {
-    const user = new User(this.myForm.value.userName, this.myForm.value.pwd);
+    const user = new User(this.myForm.value.userName, this.myForm.value.password);
     console.log(this.myForm.value.userName);
-    console.log(typeof this.myForm.value.pwd);
+    console.log(typeof this.myForm.value.password);
     this.authService.signin(user)
       .subscribe(
         data => {
@@ -35,7 +35,7 @@ export class SigninComponent implements OnInit {
   ngOnInit() {
     this.myForm = new FormGroup({
       userName: new FormControl(null, Validators.required),
-      pwd: new FormControl(null, Validators.required),
+      password: new FormControl(null, Validators.required),
     });
   }
 
