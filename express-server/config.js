@@ -20,7 +20,7 @@ const swaggerJs = swaggerJSDoc({
         ]
     },
     apis: [
-        './models/*.js'
+        './routes/*.js'
     ]
 });
 

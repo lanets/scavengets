@@ -1,14 +1,14 @@
-const express = require('express')
-const router = express.Router()
-const bcrypt = require('bcryptjs')
-const jwt = require('jsonwebtoken')
-const User = require('../models/user')
+const express = require('express');
+const router = express.Router();
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const User = require('../models/user');
 // const jwtSecret = 'secret' // to be changed to a real secret in prod
 
 // routes
-router.post('/', register)
-router.post('/signin', authenticate)
-// router.get('/', getAll);
+router.post('/', register);
+router.post('/signin', authenticate);
+router.get('/', getUsersList);
 // router.get('/current', getCurrent);
 // router.put('/:_id', update);
 // router.delete('/:_id', _delete);
@@ -19,7 +19,8 @@ function register (req, res, next) {
     lastName: req.body.lastName,
     userName: req.body.userName,
     password: bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10), null)
-  })
+  });
+
   user.save(function (err, result) {
     if (err) {
       return res.status(500).json({
@@ -55,7 +56,7 @@ function authenticate (req, res, next) {
       })
     }
     // expiresIn in seconds, so currently set for 2 hours
-    var token = jwt.sign({user: user}, 'jwtSecret', {expiresIn: 7200})
+    var token = jwt.sign({user: user}, 'jwtSecret', {expiresIn: 7200});
     res.status(200).json({
       message: 'Successfully logged in',
       token: token,
@@ -64,7 +65,23 @@ function authenticate (req, res, next) {
   })
 }
 
-module.exports = router
+function getUsersList(req, res, next) {
+    User.find({}, function(err, users) {
+        var usersList = {};
+
+        users.forEach(function(user) {
+            usersList[user._id] = [
+                {"username": user.userName},
+                {"firstname": user.firstName},
+                {"lastname": user.lastName}
+            ];
+        });
+
+        res.send(usersList);
+    });
+}
+
+module.exports = router;
 
 /*
 function getAll(req, res) {
