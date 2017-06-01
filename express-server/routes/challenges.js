@@ -5,7 +5,7 @@ var Challenge = require('../models/challenge');
 /* GET all challenges. */
 router.get('/challenges', (req, res) => {
     Challenge.find({}, (err, challenges) => {
-        if (err) res.status(500).send(error)
+        if (err) res.status(500).send(error);
 
         res.status(200).json(challenges);
     });
@@ -14,7 +14,7 @@ router.get('/challenges', (req, res) => {
 /* GET one challenge. */
 router.get('/challenges/:id', (req, res) => {
     Challenge.findById(req.param.id, (err, challenges) => {
-        if (err) res.status(500).send(error)
+        if (err) res.status(500).send(error);
 
         res.status(200).json(challenges);
     });
@@ -27,16 +27,16 @@ router.post('/', (req, res) => {
     });
 
     challenge.save(function(err, res){
-       if (err){
-           return res.status(500).json({
-               title: 'An error occured',
-               error: err
-           });
-       }
-       res.status(201).json({
-           message: 'Saved message',
-           obj: result
-       });
+        if (err){
+            return res.status(500).json({
+                title: 'An error occured',
+                error: err
+            });
+        }
+        res.status(201).json({
+            message: 'Saved message',
+            obj: result
+        });
     });
 });
 
