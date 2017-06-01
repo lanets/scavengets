@@ -9,7 +9,7 @@ const User = require('../models/user');
 router.post('/', register);
 router.post('/signin', authenticate);
 router.get('/', getUsersList);
-// router.get('/current', getCurrent);
+router.get('/:username', getUser);
 // router.put('/:_id', update);
 // router.delete('/:_id', _delete);
 
@@ -54,6 +54,58 @@ function getUsersList(req, res, next) {
         });
 
         return res.send(usersList);
+    });
+}
+
+/**
+ * @swagger
+ * /user/{username}:
+ *   get:
+ *     description: Returns a user
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: username
+ *         description: user description
+ *         in: path
+ *         type: string
+ *         required: true
+ *     responses:
+ *       200:
+ *         description: user
+ *         schema:
+ *           type: array
+ *         examples:
+ *           application/json: {
+ *             "2412412": [
+ *               "username": "caflamand",
+ *               "firstname": "Rose",
+ *               "lastname": "Lamant"
+ *             ]
+ *           }
+ *       409:
+ *         description: Access forbidden
+ */
+function getUser(req, res, next) {
+    User.findOne({userName: req.params.username}, function(err, user) {
+        if (err) {
+            return res.status(500).json({
+                title: 'An error occured',
+                error: err
+            })
+        }
+        if (!user) {
+            return res.status(404).json({
+                title: 'no user found',
+                error: {message: 'user could not be found'}
+            })
+        }
+
+        return res.status(200).json({
+            "username": user.userName,
+            "firstname": user.firstName,
+            "lastname": user.lastName
+        })
     });
 }
 
