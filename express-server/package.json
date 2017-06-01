@@ -6,6 +6,9 @@
     "start": "node server.js"
   },
   "dependencies": {
+    "swagger-ui-express": "^2.0.0",
+    "swagger-jsdoc": "^1.9.4",
+
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.17.2",
     "express": "~4.15.0",
