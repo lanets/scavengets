@@ -12,37 +12,37 @@ import { User } from '@models';
 })
 export class SignupComponent implements OnInit {
 
-  myForm: FormGroup;
+  registerForm: FormGroup;
   private data: any;
   private parseError: boolean;
-  private passwordConfirm = false;
+  private confirmPassword = false;
 
   // inject authentication.service.ts
   constructor(private authService: AuthService, private router: Router) {}
 
   onSubmit() {
     const user = new User(
-      this.myForm.value.userName,
-      this.myForm.value.pwd,
-      this.myForm.value.firstName,
-      this.myForm.value.lastName,
-
+      this.registerForm.value.userName,
+      this.registerForm.value.password,
+      this.registerForm.value.firstName,
+      this.registerForm.value.lastName,
     );
+
     this.authService.signup(user)
       .subscribe(
         data => console.log(data),
         error => console.error(error)
       );
     this.router.navigate(['/authentication', 'signin']);
-    this.myForm.reset();
+    this.registerForm.reset();
   }
 
   ngOnInit() {
-    this.myForm = new FormGroup({
+    this.registerForm = new FormGroup({
       firstName: new FormControl(null, Validators.required),
       lastName: new FormControl(null, Validators.required),
       userName: new FormControl(null, Validators.required),
-      pwd: new FormControl(null, Validators.required),
+      password: new FormControl(null, Validators.required),
       confirmPassword: new FormControl(null, Validators.required)
     });
   }

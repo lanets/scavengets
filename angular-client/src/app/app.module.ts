@@ -8,7 +8,7 @@ import { CanActivateAuthentificationGuard } from '@route-guards';
 
 import { AppComponent } from './app.component';
 
-import { AuthenticationModule, ChallengesModule, HomeModule, JudgeModule, TeamsModule } from '@app-modules';
+import { AuthenticationModule, AccountModule, ChallengesModule, HomeModule, JudgeModule, TeamsModule } from '@app-modules';
 import { HeaderComponent, ErrorModule } from '@shared-modules';
 import { AuthService, ErrorService } from '@services';
 
@@ -24,6 +24,7 @@ import { AuthService, ErrorService } from '@services';
     HomeModule,
     ErrorModule,
     AuthenticationModule,
+    AccountModule,
     ChallengesModule,
     JudgeModule,
     TeamsModule

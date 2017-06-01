@@ -1,7 +1,7 @@
 <div class="col-md-8 col-md-offset-2">
   <h1>Sign up</h1>
   <hr />
-  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="firstName">First Name</label>
       <input
@@ -27,16 +27,24 @@
         formControlName="userName">
     </div>
     <div class="form-group">
-      <label for="pwd">Password</label>
+      <label for="password">Password</label>
       <input
         type="password"
-        id="pwd"
+        id="password"
         class="form-control"
-        formControlName="pwd">
+        formControlName="password">
+    </div>
+    <div class="form-group">
+      <label for="confirmPassword">Confirm password</label>
+      <input
+        type="password"
+        id="confirmPassword"
+        class="form-control"
+        formControlName="confirmPassword">
     </div>
     <button
       class="btn btn-primary"
       type="submit"
-      [disabled]="!myForm.valid">Submit</button>
+      [disabled]="!registerForm.valid">Submit</button>
   </form>
 </div>
