@@ -41,7 +41,7 @@ router.get('/', getUsersList);
  *       409:
  *         description: Access forbidden
  */
-function getUsersList(res, next) {
+function getUsersList(req, res, next) {
     User.find({}, function(err, users) {
         var usersList = {};
 
@@ -53,7 +53,7 @@ function getUsersList(res, next) {
             ];
         });
 
-        res.send(usersList);
+        return res.send(usersList);
     });
 }
 

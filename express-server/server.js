@@ -44,7 +44,7 @@ app.use('/challenge', routes.challenges);
 app.use('/', routes.api);
 
 // Swagger
-app.use('/docs', swaggerUi.serve, swaggerUi.setup(config.swaggerJs, false));
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(config.swaggerJs));
 
 // Create HTTP server.
 const server = http.createServer(app);
