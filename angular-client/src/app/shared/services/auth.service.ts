@@ -10,16 +10,16 @@ import { ErrorService } from '@services';
 @Injectable()
 export class AuthService {
   // Link to our api, pointing to localhost
-  API = 'http://localhost:3000';
+  public readonly API = 'http://localhost:3000';
 
   public static logout() { localStorage.clear(); }
   public static isLoggedIn() { return localStorage.getItem('token') !== null; }
-  public static getToken() { return localStorage.getItem('token'); }
+  // public static getToken() { return localStorage.getItem('token'); }
+  // public static getCurrentUser(): User { return null; }
 
   constructor(private http: Http, private errorService: ErrorService) {  }
 
   public signup(user: User) {
-
     const body = JSON.stringify(user);
     const headers = new Headers({'Content-Type': 'application/json'});
 
@@ -40,14 +40,6 @@ export class AuthService {
         this.errorService.handleError(error.json());
         return Observable.throw(error.json());
       });
-  }
-
-  public getCurrentUser(): User {
-    return null;
-  }
-
-  public getUserRoles(): Array<any> {
-    return [];
   }
 
 }

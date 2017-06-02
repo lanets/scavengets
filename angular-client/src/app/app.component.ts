@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
+import { Component } from '@angular/core';
 
 // Import rxjs map operator
 import 'rxjs/add/operator/map';
+
 
 @Component({
   selector: 'app-root',
@@ -10,7 +10,5 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent  {
-  title = 'app works!';
-
 
 }

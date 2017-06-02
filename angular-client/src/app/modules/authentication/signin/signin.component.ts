@@ -11,11 +11,11 @@ import { AuthService } from '@services';
   templateUrl: './signin.component.html'
 })
 export class SigninComponent implements OnInit {
-  myForm: FormGroup;
+  public myForm: FormGroup;
 
   constructor(private authService: AuthService, private router: Router ) {}
 
-  onSubmit() {
+  public onSubmit() {
     const user = new User(this.myForm.value.userName, this.myForm.value.password);
     console.log(this.myForm.value.userName);
     console.log(typeof this.myForm.value.password);
@@ -32,12 +32,11 @@ export class SigninComponent implements OnInit {
     this.myForm.reset();
   }
 
-  ngOnInit() {
+  public ngOnInit() {
     this.myForm = new FormGroup({
       userName: new FormControl(null, Validators.required),
       password: new FormControl(null, Validators.required),
     });
   }
-
 
 }

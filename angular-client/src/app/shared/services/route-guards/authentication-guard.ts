@@ -8,7 +8,7 @@ export class CanActivateAuthentificationGuard implements CanActivate {
 
   constructor(private authService: AuthService) {}
 
-  canActivate() {
+  public canActivate() {
     return AuthService.isLoggedIn();
   }
 }

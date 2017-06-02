@@ -12,7 +12,7 @@ import { User } from '@models';
 })
 export class SignupComponent implements OnInit {
 
-  registerForm: FormGroup;
+  public registerForm: FormGroup;
   private data: any;
   private parseError: boolean;
   private confirmPassword = false;
@@ -20,7 +20,7 @@ export class SignupComponent implements OnInit {
   // inject authentication.service.ts
   constructor(private authService: AuthService, private router: Router) {}
 
-  onSubmit() {
+  public onSubmit() {
     const user = new User(
       this.registerForm.value.userName,
       this.registerForm.value.password,
@@ -37,7 +37,7 @@ export class SignupComponent implements OnInit {
     this.registerForm.reset();
   }
 
-  ngOnInit() {
+  public ngOnInit() {
     this.registerForm = new FormGroup({
       firstName: new FormControl(null, Validators.required),
       lastName: new FormControl(null, Validators.required),

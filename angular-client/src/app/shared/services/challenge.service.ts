@@ -7,19 +7,18 @@ import {Challenge} from '@models';
 
 @Injectable()
 
-export class ChallengeService{
+export class ChallengeService {
 // Link to our api, pointing to localhost
-  API = 'http://localhost:3000';
+  private readonly API = 'http://localhost:3000';
 
   // Declare empty list of people
   private challenges: any[] = [];
+  private challengeIsEdit = new EventEmitter<Challenge>();
 
-  challengeIsEdit = new EventEmitter<Challenge>();
-
-  constructor(private http: Http) {}
+  constructor(private http: Http) { }
 
   // Add one challenge to the API
-  addChallenge(challenge: Challenge) {
+  public addChallenge(challenge: Challenge) {
     const body = JSON.stringify(challenge);
     return this.http.post(`${this.API}/challenges`, body)
       .map(res => {
@@ -30,7 +29,7 @@ export class ChallengeService{
   }
 
   // Get all users from the API
-  getAllChallenges() {
+  public getAllChallenges() {
     return this.http.get(`${this.API}/challenges`)
       .map(res => {
         const challenges = res.json().obj;
@@ -44,24 +43,22 @@ export class ChallengeService{
       .catch((err: Response) => Observable.throw(err.json()));
   }
 
-  editChallenge(challenge: Challenge){
+  public editChallenge(challenge: Challenge) {
     this.challengeIsEdit.emit(challenge);
   }
 
-  updateChallenge(challenge: Challenge){
-    const body = JSON.stringify(challenge);
-    return this.http.patch(`${this.API}/challenges` + challenge.challengeId, body)
-      .map((res) => res.json())
-      .catch((err) => Observable.throw(err.json()));
-  }
+  // public updateChallenge(challenge: Challenge){
+  //   const body = JSON.stringify(challenge);
+  //   return this.http.patch(`${this.API}/challenges` + challenge.challengeId, body)
+  //     .map((res) => res.json())
+  //     .catch((err) => Observable.throw(err.json()));
+  // }
 
-  deleteMessage(challenge: Challenge) {
+  public deleteMessage(challenge: Challenge) {
     this.challenges.splice(this.challenges.indexOf(challenge), 1);
     return this.http.delete(`${this.API}/challenges` + challenge.challengeId)
       .map((res => res.json()))
       .catch((err => Observable.throw(err.json())));
-
   }
 
 }
-

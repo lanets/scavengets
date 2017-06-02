@@ -10,18 +10,18 @@ import {Challenge} from '@models';
   templateUrl: './challenge-input.component.html',
   providers: [ChallengeService]
 })
-export class ChallengeInputComponent implements OnInit{
-  inputForm: FormGroup;
+export class ChallengeInputComponent implements OnInit {
+  public inputForm: FormGroup;
 
-  constructor(private challengeService: ChallengeService){}
+  constructor(private challengeService: ChallengeService) {}
 
-  onSubmit() {
+  public onSubmit() {
     const challenge = new Challenge(this.inputForm.value.title, this.inputForm.value.description, this.inputForm.value.points );
     this.challengeService.addChallenge(challenge);
     this.inputForm.reset();
   }
 
-  ngOnInit() {
+  public ngOnInit() {
     this.inputForm = new FormGroup({
       title: new FormControl(null, Validators.required),
       description: new FormControl(null, Validators.required),

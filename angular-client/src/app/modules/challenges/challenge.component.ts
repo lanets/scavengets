@@ -23,15 +23,15 @@ import { ChallengeService } from '@services';
   `]
 })
 export class ChallengeComponent {
-  @Input() challenge: Challenge;
+  @Input() public challenge: Challenge;
 
   constructor(private challengeService: ChallengeService) {}
 
-  onEdit() {
+  public onEdit() {
     this.challengeService.editChallenge(this.challenge);
   }
 
-  onDelete() {
+  public onDelete() {
     this.challengeService.deleteMessage(this.challenge)
       .subscribe(
         result => console.log(result)
