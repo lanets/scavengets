@@ -1,0 +1,14 @@
+language: node_js
+
+node_js:
+  - "7"
+
+install:
+  - cd angular-client
+  - npm install
+
+script:
+  - node_modules/angular-cli/bin/ng lint
+
+notifications:
+    email: false

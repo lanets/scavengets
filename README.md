@@ -6,18 +6,9 @@ This project was generated with [angular-cli](https://github.com/angular/angular
 ## Prerequisite
 You need to have docker and docker-compose installed in your setup. verify your installation by running <br> `docker -v` and `docker-compose -v`
 
-## Build Dockerfile
-FOR ANGULAR-CLIENT <br>
-`docker build -t angular-client:dev .` <br>
-FOR EXPRESS-SERVER <br>
-`docker build -t express-server:dev .` <br>
-FOR MONGODB (we use the image on dockerhub) <br>
-`docker run -d --name mongodb -p 27017:27017 mongo`
+## Running the services
 
-## Development server
-`docker-compose up` <br>
-AFTER CHANGES (*note*: changing front end code doesn't require this) <br>
-`docker-compose up --build`
+Run `make docker-run`
 
 ## localhost
 angular-client: http://localhost:4200 <br>
