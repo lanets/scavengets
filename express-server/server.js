@@ -50,4 +50,4 @@ app.use('/docs', swaggerUi.serve, swaggerUi.setup(config.swaggerJs));
 const server = http.createServer(app);
 
 // Listen on provided port, on all network interfaces.
-server.listen(config.port, () => console.log(`API running on localhost:${config.port}`));
+server.listen(config.port, console.log('API running on localhost:' + config.port));
