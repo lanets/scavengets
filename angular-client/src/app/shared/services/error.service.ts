@@ -4,9 +4,9 @@ import { Error } from '@models';
 
 
 export class ErrorService {
-    errorOccurred = new EventEmitter<Error>();
+    public errorOccurred = new EventEmitter<Error>();
 
-    handleError(error: any) {
+    public handleError(error: any) {
         const errorData = new Error(error.title, error.error.message);
         this.errorOccurred.emit(errorData);
     }

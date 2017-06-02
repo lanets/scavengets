@@ -20,7 +20,7 @@ export class ChallengeListComponent implements OnInit {
 
   constructor(private challengeService: ChallengeService) {}
 
-  ngOnInit() {
+  public ngOnInit() {
     this.challengeService.getAllChallenges()
       .subscribe(
         (challenges: Challenge[]) => {

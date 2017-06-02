@@ -4,36 +4,26 @@ import { Error } from '@models';
 import { ErrorService } from '@services';
 
 @Component({
-    selector: 'app-error',
-    templateUrl: './error.component.html',
-    styles: [`
-        .backdrop {
-            background-color: rgba(0,0,0,0.6);
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-        }
-    `]
+  selector: 'app-error',
+  templateUrl: './error.component.html',
 })
 export class ErrorComponent implements OnInit {
-    error: Error;
-    display = 'none';
+  private error: Error;
+  private display: string;
 
-    constructor(private errorService: ErrorService) {}
+  constructor(private errorService: ErrorService) {}
 
-    onErrorHandled() {
-        this.display = 'none';
-    }
+  public onErrorHandled() {
+    this.display = 'none';
+  }
 
-    ngOnInit() {
-        this.errorService.errorOccurred
-            .subscribe(
-                (error: Error) => {
-                    this.error = error;
-                    this.display = 'block';
-                }
-            );
-    }
+  public ngOnInit() {
+    this.errorService.errorOccurred
+      .subscribe(
+        (error: Error) => {
+          this.error = error;
+          this.display = 'block';
+        }
+      );
+  }
 }

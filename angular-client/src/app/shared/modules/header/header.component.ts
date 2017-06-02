@@ -1,6 +1,7 @@
-import { Component } from "@angular/core";
-import { Router } from "@angular/router";
-import { AuthService } from "../../services/auth.service";
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '@services';
+
 
 @Component({
   selector: 'app-header',
@@ -8,23 +9,23 @@ import { AuthService } from "../../services/auth.service";
   styleUrls: ['./header.component.css']
 
 })
-
 export class HeaderComponent {
-  isIn = false;
-  toggleState(){
-    let bool = this.isIn;
-    this.isIn = bool === false ? true: false;
+  private isIn: boolean;
+
+  constructor(private authService: AuthService, private router: Router) {
+    this.isIn = false;
   }
 
-  constructor(private authService: AuthService, private router: Router){}
-
-  isLoggedIn(){
-    return AuthService.isLoggedIn();
+  public toggleState() {
+    const bool = this.isIn;
+    this.isIn = bool === false;
   }
 
-  onLogout(){
-    AuthService.logout()
-    this.router.navigate(['/authentication', 'signin'])
+  public isLoggedIn() { return AuthService.isLoggedIn(); }
+
+  public onLogout() {
+    AuthService.logout();
+    this.router.navigate(['/authentication', 'signin']);
   }
 
 }
