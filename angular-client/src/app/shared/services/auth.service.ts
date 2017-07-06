@@ -12,7 +12,7 @@ import { ErrorService } from '@services';
 export class AuthService {
   private jwtHelper: JwtHelper = new JwtHelper();
   // Link to our api, pointing to localhost
-  public readonly API = 'http://localhost:3000';
+  public readonly API = 'http://localhost:3000/api/v1';
 
   public static logout() { localStorage.clear(); }
   public static isLoggedIn() { return localStorage.getItem('token') !== null; }

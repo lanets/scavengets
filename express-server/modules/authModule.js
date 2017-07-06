@@ -7,11 +7,12 @@ const jwt = require('jsonwebtoken')
 
 // Function to intercept, decode token and list parameters in the request
 var decodeToken = function (req, res, next) {
-  var isUser = req.path.includes('/user')
+  var isAPIRoutes = req.path.includes('/api/v1')
   var isAuth = req.path.includes('/auth/')
+  console.log(isAPIRoutes, isAuth)
   async.waterfall([
     function validateURL (done) {
-      if (req.headers.token && isUser) {
+      if (req.headers.token && isAPIRoutes) {
         done(null)
       } else if (!req.headers.token && !isAuth) {
         res.sendStatus(401)

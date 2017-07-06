@@ -39,22 +39,15 @@ app.use(function (req, res, next) {
       next();
   }
 });
+// Make sure the user is authenticate and has access to the request page
 app.use(authModule.decode);
 
-
-// Get our API routes
-var routes = {
-  api: require('./routes/api'),
-  user: require('./routes/users'),
-  auth: require('./routes/auth'),
-  challenges: require('./routes/challenges')
-};
-
 // Set our api routes
-app.use('/user', routes.user);
-app.use('/auth', routes.auth);
-app.use('/challenge', routes.challenges);
-app.use('/', routes.api);
+app.use('/api/v1/user', require('./routes/users'));
+app.use('/api/v1/auth', require('./routes/auth'));
+// app.use('/api/v1/team', require('./routes/team'));
+app.use('/api/v1/challenge', require('./routes/challenges'));
+app.use('/', require('./routes/api'));
 
 // Swagger
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(config.swaggerJs));

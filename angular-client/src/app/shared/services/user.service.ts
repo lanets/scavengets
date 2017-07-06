@@ -7,7 +7,7 @@ import { ErrorService, AuthService } from '@services';
 @Injectable()
 export class UserService {
 // Link to our api, pointing to localhost
-  public readonly API = 'http://localhost:3000';
+  public readonly API = 'http://localhost:3000/api/v1';
   constructor(private http: Http, private errorService: ErrorService, private authService: AuthService) {  }
   public getAccount() {
     const headers = new Headers({'Content-Type': 'application/json', 'token': localStorage.getItem('token')});
