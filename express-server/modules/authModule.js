@@ -9,7 +9,6 @@ const jwt = require('jsonwebtoken')
 var decodeToken = function (req, res, next) {
   var isAPIRoutes = req.path.includes('/api/v1')
   var isAuth = req.path.includes('/auth/')
-  console.log(isAPIRoutes, isAuth)
   async.waterfall([
     function validateURL (done) {
       if (req.headers.token && isAPIRoutes) {
