@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node server.js"
+    "start": "node --inspect server.js"
   },
   "dependencies": {
     "swagger-ui-express": "^2.0.0",
@@ -12,6 +12,7 @@
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.17.2",
     "express": "~4.15.0",
+    "express-session": "^1.15.3",
     "express-jwt": "^3.0.1",
     "lodash": "^3.10.0",
     "jsonwebtoken": "^7.4.1",
@@ -21,6 +22,9 @@
     "rootpath": "^0.1.2",
     "cookie-parser": "^1.4.3",
     "serve-favicon": "2.4.3",
-    "morgan": "^1.8.2"
+    "morgan": "^1.8.2",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^4.0.0"
   }
 }

@@ -15,6 +15,7 @@ services:
     image: node:7
     ports:
       - "3000:3000" #specify ports forewarding
+      - "9229:9229" #specify ports forewarding
     links:
       - database # link this service to the database service
     volumes:

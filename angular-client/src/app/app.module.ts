@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
 
 import { AuthenticationModule, AccountModule, ChallengesModule, HomeModule, JudgeModule, TeamsModule } from '@app-modules';
 import { HeaderComponent, ErrorModule } from '@shared-modules';
-import { AuthService, ErrorService } from '@services';
+import { AuthService, UserService, ErrorService } from '@services';
 
 
 @NgModule({
@@ -35,6 +35,7 @@ import { AuthService, ErrorService } from '@services';
   ],
   providers: [
     AuthService,
+    UserService,
     ErrorService,
     CanActivateAuthentificationGuard
   ],
