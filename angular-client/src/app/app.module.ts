@@ -10,7 +10,7 @@ import { AppComponent } from './app.component';
 
 import { AuthenticationModule, AccountModule, ChallengesModule, HomeModule, JudgeModule, TeamsModule } from '@app-modules';
 import { HeaderComponent, ErrorModule } from '@shared-modules';
-import { AuthService, UserService, ErrorService } from '@services';
+import { AuthService, UserService, ErrorService, TeamsService } from '@services';
 
 
 @NgModule({
@@ -37,6 +37,7 @@ import { AuthService, UserService, ErrorService } from '@services';
     AuthService,
     UserService,
     ErrorService,
+    TeamsService,
     CanActivateAuthentificationGuard
   ],
   bootstrap: [AppComponent]
