@@ -3,9 +3,9 @@
     <h1>Account page</h1>
   </div>
   <div class="panel-body" *ngIf="!isEditing">
-    <p>{{user.username}}</p>
-    <p>{{user.firstname}}</p>
-    <p>{{user.lastname}}</p>
+    <p><b>username:</b> {{user.username}}</p>
+    <p><b>firstname:</b> {{user.firstname}}</p>
+    <p><b>lastname:</b> {{user.lastname}}</p>
 
     <button type="button" class="btn btn-default" (click)="editAccount()">Edit</button>
   </div>
