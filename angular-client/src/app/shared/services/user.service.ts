@@ -18,4 +18,14 @@ export class UserService {
         return Observable.throw(error.json());
       });
   }
+
+  public update(user: User) {
+    const headers = new Headers({'Content-Type': 'application/json', 'token': localStorage.getItem('token')});
+    return this.http.put(`${this.API}/user/` + this.authService.returnDecoded().uid, user, {headers: headers})
+      .map((response: Response) => response.json())
+      .catch((error: Response) => {
+        this.errorService.handleError(error.json());
+        return Observable.throw(error.json());
+      });
+  }
 }

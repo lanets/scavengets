@@ -61,5 +61,23 @@ module.exports = {
                 'lastname': user.lastName
             })
         })
+    },
+    updateUser: function (req, res, next) {
+      User.update({_id: req.params._id}, req.body, function (err, user) {
+          if (err) {
+              return res.status(500).json({
+                  title: 'An error occured',
+                  error: err
+              })
+          }
+          if (!user) {
+              return res.status(404).json({
+                  title: 'no user found',
+                  error: {message: 'user could not be found'}
+              })
+          }
+
+          return res.status(200).json(req.body)
+      })
     }
 }

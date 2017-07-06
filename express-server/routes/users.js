@@ -8,7 +8,7 @@ router.get('/', userController.getUsersList);
 router.get('/:_id?', userController.getUser);
 //router.get('/', userController.getUsersList);
 //router.get('/:username', userController.getUser);
-// router.put('/:_id', update);
+router.put('/:_id', userController.updateUser);
 // router.delete('/:_id', _delete);
 
 /**
