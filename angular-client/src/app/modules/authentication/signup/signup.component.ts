@@ -26,6 +26,7 @@ export class SignupComponent implements OnInit {
       this.registerForm.value.password,
       this.registerForm.value.firstName,
       this.registerForm.value.lastName,
+      1
     );
 
     this.authService.signup(user)

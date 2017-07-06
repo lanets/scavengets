@@ -32,7 +32,8 @@ module.exports = {
                     firstName: req.body.firstName,
                     lastName: req.body.lastName,
                     userName: req.body.userName,
-                    password: bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10), null)
+                    password: bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10), null),
+                    loa: req.body.loa
                 });
 
                 user.save(function (err, result) {
@@ -80,7 +81,7 @@ module.exports = {
             // expiresIn in seconds, so currently set for 2 hours
             var payload = {
               uid: user._id,
-              loa: 3, // User's level of access
+              loa: user.loa,
               name: user.firstName + ' ' + user.lastName,
               username: user.userName
             }
