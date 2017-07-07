@@ -9,7 +9,6 @@ import { AuthService } from '@services';
 })
 export class AuthenticationComponent {
 
-  // public static isLoggedIn() { return AuthService.isLoggedIn(); }
   constructor(private authService: AuthService) {}
 
 }

@@ -2,6 +2,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AuthenticationComponent } from '@modules/authentication';
 import { AUTH_ROUTES } from '@modules/authentication/auth.routes';
+import {TEAMS_ROUTES} from '@modules/teams/teams_routes';
 
 import { AccountComponent } from '@modules/account';
 import { ChallengesComponent } from '@modules/challenges';
@@ -12,10 +13,11 @@ import { TeamsComponent } from '@modules/teams';
 import { CanActivateAuthentificationGuard } from '@route-guards';
 
 
+
 const APP_ROUTES: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent },
-  { path: 'teams', component: TeamsComponent },
+  { path: 'teams', component: TeamsComponent, children: TEAMS_ROUTES },
   { path: 'challenges', component: ChallengesComponent },
   { path: 'judge', component: JudgeComponent },
   { path: 'authentication', component: AuthenticationComponent, children: AUTH_ROUTES },

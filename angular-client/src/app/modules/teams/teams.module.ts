@@ -1,25 +1,29 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
+import {RouterModule} from '@angular/router';
 
-import { TeamsComponent } from './index';
-import { CreateTeamComponent } from './index';
-import { JoinTeamComponent } from './index';
+import {JoinTeamComponent, TeamsComponent, CreateTeamComponent, TeamPartialComponent, ViewTeamsComponent} from './index';
 
 @NgModule({
   imports: [
     CommonModule,
     HttpModule,
+    RouterModule
   ],
   declarations: [
     TeamsComponent,
     CreateTeamComponent,
-    JoinTeamComponent
+    TeamPartialComponent,
+    JoinTeamComponent,
+    ViewTeamsComponent
   ],
   exports: [
     TeamsComponent,
     CreateTeamComponent,
-    JoinTeamComponent
+    TeamPartialComponent,
+    JoinTeamComponent,
+    ViewTeamsComponent
   ]
 })
 export class TeamsModule { }
