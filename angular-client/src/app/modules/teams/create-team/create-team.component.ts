@@ -13,7 +13,6 @@ import {Team, User} from '@models';
 export class CreateTeamComponent implements OnInit {
   public registerForm: FormGroup;
 
-  // inject authentication.service.ts
   constructor(private teamService: TeamsService, private authService: AuthService, private router: Router) {
   }
 

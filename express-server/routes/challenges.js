@@ -1,8 +1,9 @@
+/*
 var express = require('express');
 var router = express.Router();
 var Challenge = require('../models/challenge');
 
-/* GET all challenges. */
+/!* GET all challenges. *!/
 router.get('/challenges', (req, res) => {
     Challenge.find({}, (err, challenges) => {
         if (err) res.status(500).send(error);
@@ -11,7 +12,7 @@ router.get('/challenges', (req, res) => {
     });
 });
 
-/* GET one challenge. */
+/!* GET one challenge. *!/
 router.get('/challenges/:id', (req, res) => {
     Challenge.findById(req.param.id, (err, challenges) => {
         if (err) res.status(500).send(error);
@@ -20,7 +21,7 @@ router.get('/challenges/:id', (req, res) => {
     });
 });
 
-/* Create a challenge. */
+/!* Create a challenge. *!/
 router.post('/', (req, res) => {
     var challenge = new Challenge({
         content: req.body.content
@@ -41,3 +42,4 @@ router.post('/', (req, res) => {
 });
 
 module.exports = router;
+*/

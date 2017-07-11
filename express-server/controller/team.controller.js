@@ -1,5 +1,4 @@
 const express = require('express');
-const bcrypt = require('bcryptjs');
 const Team = require('../models/team');
 
 
@@ -11,7 +10,7 @@ module.exports = {
    * @param  res
    * @return Void
    */
-  register: function (req, res, next) {
+  registerTeam: function (req, res, next) {
     Team.findOne({name: req.body.name}, function (err, team) {
       // In case of any error return
       if (err) {
@@ -24,14 +23,10 @@ module.exports = {
         return done(null, false,
             req.flash('message', 'Team Already Exists'));
       } else {
-        var team = new Team({
-          name: req.body.name,
-          points: req.body.points,
-          users: req.body.users,
-          captain: req.body.captain,
-        });
+        var teamData = {name: req.body.name, points: req.body.points, users: req.body.users, captain: req.body.captain};
+        var team = new Team(teamData);
 
-        user.save(function (err, result) {
+        team.save(function (err, result) {
           if (err) {
             return res.status(500).json({
               title: 'An error occured',
@@ -46,4 +41,5 @@ module.exports = {
       }
     });
   }
+
 }

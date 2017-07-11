@@ -45,8 +45,8 @@ app.use(authModule.decode);
 // Set our api routes
 app.use('/api/v1/user', require('./routes/users'));
 app.use('/api/v1/auth', require('./routes/auth'));
-// app.use('/api/v1/team', require('./routes/team'));
-app.use('/api/v1/challenge', require('./routes/challenges'));
+app.use('/api/v1/team', require('./routes/teams'));
+//app.use('/api/v1/challenge', require('./routes/challenges'));
 app.use('/', require('./routes/api'));
 
 // Swagger
