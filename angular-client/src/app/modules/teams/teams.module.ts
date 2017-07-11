@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
 import {RouterModule} from '@angular/router';
 
-import {JoinTeamComponent, TeamsComponent, CreateTeamComponent, TeamPartialComponent, ViewTeamsComponent} from './index';
+import {JoinTeamComponent, TeamsComponent, CreateTeamComponent, ViewTeamsComponent} from './index';
 
 @NgModule({
   imports: [
@@ -14,14 +14,12 @@ import {JoinTeamComponent, TeamsComponent, CreateTeamComponent, TeamPartialCompo
   declarations: [
     TeamsComponent,
     CreateTeamComponent,
-    TeamPartialComponent,
     JoinTeamComponent,
     ViewTeamsComponent
   ],
   exports: [
     TeamsComponent,
     CreateTeamComponent,
-    TeamPartialComponent,
     JoinTeamComponent,
     ViewTeamsComponent
   ]

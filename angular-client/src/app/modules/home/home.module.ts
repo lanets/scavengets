@@ -10,10 +10,10 @@ import { HomeComponent } from './index';
     HttpModule,
   ],
   declarations: [
-    HomeComponent
+    HomeComponent,
   ],
   exports: [
-    HomeComponent
+    HomeComponent,
   ]
 })
 

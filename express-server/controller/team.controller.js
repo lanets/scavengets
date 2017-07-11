@@ -6,7 +6,7 @@ const Team = require('../models/team');
 module.exports = {
 
   /**
-   * [register -- register new user]
+   * [register -- register new Team]
    * @param  req
    * @param  res
    * @return Void
@@ -24,12 +24,11 @@ module.exports = {
         return done(null, false,
             req.flash('message', 'Team Already Exists'));
       } else {
-        var user = new User({
-          firstName: req.body.firstName,
-          lastName: req.body.lastName,
-          userName: req.body.userName,
-          password: bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10), null),
-          loa: req.body.loa
+        var team = new Team({
+          name: req.body.name,
+          points: req.body.points,
+          users: req.body.users,
+          captain: req.body.captain,
         });
 
         user.save(function (err, result) {
@@ -40,7 +39,7 @@ module.exports = {
             })
           }
           res.status(201).json({
-            message: 'User created',
+            message: 'Team created',
             obj: result
           })
         })
