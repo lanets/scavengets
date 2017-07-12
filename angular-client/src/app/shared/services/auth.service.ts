@@ -6,7 +6,7 @@ import {environment} from 'environments/environment';
 
 import 'rxjs/Rx';
 
-import {User} from '@models';
+import {JWTResponse, User} from '@models';
 import {ErrorService} from '@services';
 
 
@@ -33,7 +33,7 @@ export class AuthService {
   }
 
   public signup(user: User) {
-    const body = JSON.stringify(user);
+    let body = JSON.stringify(user);
 
     return this.http.post(`${environment.api}/auth/register`, body, {headers: this.headers})
       .map((response: Response) => response.json())
@@ -43,14 +43,14 @@ export class AuthService {
       });
   }
 
-  public signin(user: User) {
-    const body = JSON.stringify(user);
-    return this.http.post(`${environment.api}/auth/signin`, body, {headers: this.headers})
-      .map((response: Response) => response.json())
-      .catch((error: Response) => {
-        this.errorService.handleError(error.json());
-        return Observable.throw(error.json());
-      });
+  public signin(user: User): Promise<JWTResponse> {
+    let body = JSON.stringify(user);
+    return new Promise((resolve) => {
+      this.http.post(`${environment.api}/auth/signin`, body, {headers: this.headers})
+        .toPromise()
+        .then((response: Response) => resolve(response.json()))
+        .catch((error: Response) => this.errorService.handleError(error.json()));
+    });
   }
 
 }
