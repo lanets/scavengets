@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
 
-import { AuthService } from '@services';
-import { User } from '@models';
+import {AuthService} from '@services';
+import {User} from '@models';
 
 
 @Component({
@@ -17,25 +17,17 @@ export class SignupComponent implements OnInit {
   private parseError: boolean;
   private confirmPassword = false;
 
-  // inject authentication.service.ts
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {
+  }
 
   public onSubmit() {
-    const user = new User(
+    this.authService.signup(new User(
       this.registerForm.value.userName,
       this.registerForm.value.password,
       this.registerForm.value.firstName,
       this.registerForm.value.lastName,
       1
-    );
-
-    this.authService.signup(user)
-      .subscribe(
-        data => console.log(data),
-        error => console.error(error)
-      );
-    this.router.navigate(['/authentication', 'signin']);
-    this.registerForm.reset();
+    ));
   }
 
   public ngOnInit() {

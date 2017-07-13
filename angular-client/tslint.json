@@ -24,7 +24,6 @@
     "member-access": true,
     "member-ordering": [
       true,
-      "static-before-instance",
       "variables-before-functions"
     ],
     "no-arg": true,
@@ -60,7 +59,7 @@
       "check-else",
       "check-whitespace"
     ],
-    "prefer-const": true,
+    "prefer-const": false,
     "quotemark": [
       true,
       "single"
