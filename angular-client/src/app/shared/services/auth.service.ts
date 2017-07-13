@@ -1,12 +1,12 @@
 import {Injectable} from '@angular/core';
 import {Http, Headers, Response} from '@angular/http';
-import {Observable} from 'rxjs/Observable';
+import {Router} from '@angular/router';
 import {JwtHelper} from 'angular2-jwt';
 import {environment} from 'environments/environment';
 
 import 'rxjs/Rx';
 
-import {JWTResponse, User} from '@models';
+import {JWTResponse, User, Error} from '@models';
 import {ErrorService} from '@services';
 
 
@@ -15,7 +15,9 @@ export class AuthService {
   private jwtHelper: JwtHelper;
   private readonly headers: Headers;
 
-  constructor(private http: Http, private errorService: ErrorService) {
+  constructor(private http: Http,
+              private errorService: ErrorService,
+              private router: Router) {
     this.jwtHelper = new JwtHelper();
     this.headers = new Headers({'Content-Type': 'application/json'});
   }
@@ -32,15 +34,21 @@ export class AuthService {
     return this.jwtHelper.decodeToken(localStorage.getItem('token'));
   }
 
-  public signup(user: User) {
+  // TODO: password check should be handled on the frontend before being sent to the server
+  // TODO: api should send a more explicit error message that can be used by the app
+  // TODO: api is currently crashing when trying to register an already existing user
+  public signup(user: User): void {
     let body = JSON.stringify(user);
 
-    return this.http.post(`${environment.api}/auth/register`, body, {headers: this.headers})
-      .map((response: Response) => response.json())
-      .catch((error: Response) => {
-        this.errorService.handleError(error.json());
-        return Observable.throw(error.json());
-      });
+    this.http.post(`${environment.api}/auth/register`, body, {headers: this.headers})
+      .toPromise()
+      .then((response: Response) => this.router.navigate(['/authentication', 'signin']))
+      .catch(() =>
+        this.errorService.handleError({
+          'title': 'Error',
+          'message': 'Account registration failed',
+        })
+      );
   }
 
   public signin(user: User): Promise<JWTResponse> {
