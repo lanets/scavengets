@@ -4,12 +4,14 @@ import { HttpModule } from '@angular/http';
 import {RouterModule} from '@angular/router';
 
 import {JoinTeamComponent, TeamsComponent, CreateTeamComponent, ViewTeamsComponent} from './index';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   imports: [
     CommonModule,
     HttpModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule
   ],
   declarations: [
     TeamsComponent,

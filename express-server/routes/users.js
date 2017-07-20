@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const userController = require('../controller/user.controller');
-// const jwtSecret = 'secret' // to be changed to a real secret in prod
 
 // routes
 router.get('/', userController.getUsersList);

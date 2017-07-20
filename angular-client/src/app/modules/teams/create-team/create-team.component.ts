@@ -11,30 +11,34 @@ import {Team, User} from '@models';
   templateUrl: './create-team.component.html'
 })
 export class CreateTeamComponent implements OnInit {
-  public registerForm: FormGroup;
-
+  public registerTeamForm: FormGroup;
+  private users: User[] = [];
+  private currentUser = this.authService.returnDecoded().username;
   constructor(private teamService: TeamsService, private authService: AuthService, private router: Router) {
   }
 
   public onSubmit() {
+    this.users.push(this.currentUser);
     const team = new Team(
-      this.registerForm.value.name,
+      this.registerTeamForm.value.name,
       0,
-      User[this.authService.returnDecoded().userName],
-      this.authService.returnDecoded().userName);
+      this.users,
+      this.currentUser);
 
-    this.teamService.createTeam(team)
+    console.log(team);
+
+   this.teamService.createTeam(team)
       .subscribe(
         data => console.log(data),
         error => console.error(error)
       );
     this.router.navigate(['/teams']);
-    this.registerForm.reset();
+    this.registerTeamForm.reset();
   }
 
 
   public ngOnInit() {
-    this.registerForm = new FormGroup({
+    this.registerTeamForm = new FormGroup({
       name: new FormControl(null, Validators.required),
     });
   }

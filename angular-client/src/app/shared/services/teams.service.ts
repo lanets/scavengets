@@ -24,7 +24,7 @@ export class TeamsService {
 
   public createTeam(team: Team) {
     const body = JSON.stringify(team);
-    const headers = new Headers({'Content-Type': 'application/json'});
+    const headers = new Headers({'Content-Type': 'application/json', 'token': localStorage.getItem('token')});
 
     return this.http.post(`${this.API}/team/register`, body, {headers: headers})
       .map((response: Response) => response.json())
